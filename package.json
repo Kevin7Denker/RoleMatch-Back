@@ -1,0 +1,30 @@
+{
+  "name": "rolematch-back",
+  "version": "1.0.0",
+  "main": "src/server.ts",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "build": "tsc",
+    "dev": "nodemon --exec ts-node src/server.ts",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [],
+  "author": "Lazy Pirates Productions",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "eslint": "^8.57.0",
+    "nodemon": "^3.1.0"
+  }
+}
