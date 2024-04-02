@@ -19,6 +19,7 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.4",
+    "sass": "^1.72.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
   },
