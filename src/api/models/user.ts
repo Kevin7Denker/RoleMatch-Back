@@ -19,22 +19,9 @@ const UserConfig = new Schema(
   { _id: false }
 );
 
-const UserFriends = new Schema(
-  {
-    amigos: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      default: {},
-      required: true,
-    },
-  },
-  { _id: false }
-);
-
 const User = new Schema({
   profile: { type: UserProfile, default: {} },
   config: { type: UserConfig, default: {} },
-  friends: { type: UserFriends, default: {} },
 });
 
 export default mongoose.model("User", User);
