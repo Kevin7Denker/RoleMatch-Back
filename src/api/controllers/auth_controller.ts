@@ -24,7 +24,7 @@ class AuthController {
 
       const emailExiste = await this.userRepository.procurarEmail(email);
 
-      if (emailExiste) {
+      if (emailExiste === true) {
         res
           .status(400)
           .json({ sucess: false, message: "Email já Cadastrado." });
@@ -35,8 +35,16 @@ class AuthController {
       res
         .status(201)
         .json({ sucess: true, message: "Usuario cadastrado com sucesso." });
-    } catch (error) {
-      res.status(400).json({ sucess: false, message: error });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        res.status(400).json({
+          sucess: false,
+          message: error.message,
+          type: error.name,
+        });
+      } else {
+        res.status(400).json({ sucess: false, message: "Erro desonhecido" });
+      }
     }
   }
 
