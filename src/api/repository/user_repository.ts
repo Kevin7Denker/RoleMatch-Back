@@ -5,9 +5,11 @@ class UserRepository {
     try {
       const response = await user.findOne({ "profile.email": email });
 
-      if (email != null) {
-        throw new Error("Email já cadastrado");
+      if (response != null) {
+        return true;
       }
+
+      return false;
     } catch (error: unknown) {
       if (error instanceof Error) {
         return error.message;
