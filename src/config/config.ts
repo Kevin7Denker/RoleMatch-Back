@@ -11,6 +11,9 @@ export default async function startServer() {
     const dbPass = env.DB_PASSWORD;
     const dbName = env.DB_NAME;
 
+    if (process.env.SECRET == null) {
+      return console.log("SECRET não foi definido");
+    }
     await mongoose.connect(
       `mongodb+srv://${dbUser}:${dbPass}@cluster.irye11p.mongodb.net/${dbName}?retryWrites=true&w=majority`,
       {
