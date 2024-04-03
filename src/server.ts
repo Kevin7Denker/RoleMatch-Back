@@ -3,6 +3,7 @@ import cors from "cors";
 import startServer, { env } from "./config/config";
 
 import publicRoutes from "./routes/public_routes";
+import authRoutes from "./routes/auth_routes";
 
 const app = express();
 const port = env.SERVER_PORT || 3000;
@@ -12,6 +13,7 @@ app.use(express.json());
 app.options("*", cors());
 
 app.use("/", publicRoutes);
+app.use("/auth", authRoutes);
 
 startServer()
   .then(() => {
